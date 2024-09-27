@@ -1,0 +1,104 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Estilo del botón de regresar */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1d72b8;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #155a8a;
+}
+
+/* Contenedor para el header con el logo y el título */
+.header-container {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.logo-container {
+    margin-bottom: 0px;
+    margin-top: 60px; /* Añadir margen superior para separar del header */
+}
+
+.logo-bancolombia2 {
+    max-width: 30px;
+}
+
+h1 {
+    font-size: 24px;
+    padding: 0px;
+    color: #333;
+    font-weight: 700; /* Usar peso 700 para títulos */
+}
+
+/* Estilo del comprobante */
+.comprobante-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Ajusta el padding para separar el texto de los bordes */
+    max-width: 315px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+/* Estilo de las líneas horizontales */
+hr.linea-separadora {
+    border: none;
+    border-top: 1px solid #ddd;
+    width: calc(100% + 40px); /* Extiende la línea horizontal más allá del padding */
+    margin: 10px -20px; /* Ajusta el margen para compensar el padding del contenedor */
+    position: relative;
+    left: 0px; /* Alinea la línea horizontal con el borde del contenedor */
+}
+
+/* Estilo de los detalles del comprobante */
+.comprobante-detalles {
+    margin: 0;
+}
+
+/* Estilo de la información del comprobante */
+.info-container {
+    text-align: left;
+    margin: 0;
+}
+
+.info-container h2 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #000000;
+    font-weight: 600; /* Usar peso 600 para subtítulos */
+}
+
+.info-container p {
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+/* Estilo del título dentro del contenedor de información */
+.info-container h2 span {
+    display: block;
+    margin-top: 0;
+    font-size: 16px;
+    color: #000; /* Color del valor */
+}

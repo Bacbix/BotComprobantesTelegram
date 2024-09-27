@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Comprobante Bancolombia</title>
+    <link rel="stylesheet" href="index_bancolombia.css">
+</head>
+
+<a href="home.html" class="back-button">Regresar</a>
+
+<body>
+    <div class="input-container">
+        <!-- Agrega el logo de Bancolombia -->
+        <img src="logo_bancolombia.png" alt="Logo Bancolombia" class="logo-nequi">
+
+        <form id="bancolombiaForm" action="bancolombia.html" method="get">
+            <!-- Campo para el producto origen -->
+            <input type="text" id="productoOrigen" name="productoOrigen" placeholder="Producto Origen" required>
+
+            <!-- Campo para el número de celular -->
+            <input type="text" id="numeroCelular" name="numeroCelular" placeholder="Número Celular" required>
+
+            <!-- Campo para el valor enviado -->
+            <input type="text" id="valorEnviado" name="valorEnviado" placeholder="Valor Enviado" required>
+
+            <!-- Botón para generar comprobante -->
+            <button type="submit">Generar Comprobante</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobante Bancolombia</title>
+    <link rel="stylesheet" href="bancolombia.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+</head>
+<body>
+    <!-- Flecha para regresar al index_bancolombia.html -->
+    <a href="index_bancolombia.html" class="back-button">⮜ Regresar</a>
+
+    <!-- Contenedor para el header con el logo y el título -->
+    <div class="header-container">
+        <div class="logo-container">
+            <img src="logo_bancolombia2.png" alt="Logo Bancolombia" class="logo-bancolombia2">
+        </div>
+        <h1>¡Transferencia exitosa!</h1>
+    </div>
+
+    <div class="comprobante-container">
+
+        <div class="comprobante-detalles">
+            <p>Comprobante No. <span id="comprobanteNumero"></span></p>
+            <p><span id="fecha"></span></p>
+        </div>
+
+        <!-- Línea horizontal antes de la información -->
+        <hr class="linea-separadora">
+
+        <div class="info-container">
+            <h2>Producto Origen</h2>
+            <p>Cuenta de Ahorros</p>
+            <p>Ahorros</p>
+            <h2><span id="productoOrigen"></span></h2>
+            <hr class="linea-separadora">
+            <h2>Producto Destino</h2>
+            <p>Nequi</p>
+            <h2><span id="numeroCelular"></span></h2>
+            <p>Valor enviado</p>
+            <h2><span id="valorEnviado"></span></h2>
+        </div>
+    </div>
+
+    <script>
+        // Función para generar el número de comprobante aleatorio
+        function generarComprobanteNumero() {
+            const numero = '00000' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('comprobanteNumero').textContent = numero;
+        }
+
+        // Función para formatear la fecha y hora
+        function formatearFechaHora() {
+            const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+            const fechaActual = new Date();
+            const dia = fechaActual.getDate();
+            const mes = meses[fechaActual.getMonth()];
+            const año = fechaActual.getFullYear();
+            const horas = fechaActual.getHours().toString().padStart(2, '0');
+            const minutos = fechaActual.getMinutes().toString().padStart(2, '0');
+            const formato = fechaActual.getHours() >= 12 ? 'pm' : 'am';
+            return `${dia} ${mes} ${año} - ${horas}:${minutos} ${formato}`;
+        }
+
+        // Función para obtener los parámetros de la URL y formatear los valores
+        function obtenerParametrosURL() {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('productoOrigen').textContent = `*${params.get('productoOrigen')}`;
+            document.getElementById('numeroCelular').textContent = params.get('numeroCelular');
+
+            let valor = params.get('valorEnviado').replace(/,/g, '.');
+            valor = parseFloat(valor).toLocaleString('es-CO', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+            document.getElementById('valorEnviado').textContent = `$ ${valor}`;
+            document.getElementById('fecha').textContent = formatearFechaHora();
+        }
+
+        // Inicializa los valores
+        window.onload = function() {
+            generarComprobanteNumero();
+            obtenerParametrosURL();
+        };
+    </script>
+</body>
+</html>

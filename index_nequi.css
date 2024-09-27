@@ -1,0 +1,90 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('fondo.png'); /* Fondo de la página */
+    background-size: cover; /* Ajusta el fondo para que cubra toda la página */
+    background-position: center; /* Centra la imagen de fondo */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative; /* Permite que el botón de regresar se posicione relativamente */
+}
+
+/* Estilo del botón de regresar */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1d72b8;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #155a8a;
+}
+
+/* Contenedor para el formulario de entrada */
+.input-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+    position: relative; /* Para que el logo esté posicionado dentro del contenedor */
+}
+
+/* Estilo del logo de Nequi */
+.logo-nequi {
+    max-width: 120px;
+    margin-bottom: 15px;
+    display: block; /* Asegura que el logo esté centrado dentro del contenedor */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo del título de la página */
+.input-container h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo del campo de texto */
+.input-container input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo del botón */
+.input-container button {
+    background-color: #1d72b8;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-container button:hover {
+    background-color: #155a8a;
+}

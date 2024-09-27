@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobante Nequi</title>
+    <link rel="stylesheet" href="nequi.css">
+</head>
+<body>
+    <!-- Flecha para regresar al index.html en la parte superior izquierda fuera del contenedor -->
+    <a href="index_nequi.html" class="back-button">⮜ Regresar</a>
+
+    <div class="comprobante-container">
+        <!-- Agrega el logo de Nequi -->
+        <img src="logo_nequi.png" alt="Logo Nequi" class="logo-nequi">
+
+        <h1>Comprobante de Pago</h1>
+
+        <div class="detalles">
+            <p><strong>Para:</strong> <span id="nombre"></span></p>
+            <p><strong>Número Nequi:</strong> <span id="numero"></span></p>
+            <p><strong>¿Cuánto?:</strong> <span id="valor"></span></p>
+            <p><strong>Referencia:</strong> <span id="referencia"></span></p>
+            <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+        </div>
+
+        <a href="#" class="boton-compartir" id="botonCompartir">Compartir Comprobante</a>
+    </div>
+
+    <script>
+        // Función para generar la referencia aleatoria
+        function generarReferencia() {
+            const referencia = 'M' + Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('referencia').textContent = referencia;
+        }
+
+        // Función para formatear la fecha y hora en el formato "26 septiembre de 2024, 14:35"
+        function formatearFechaHora() {
+            const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+            const fechaActual = new Date();
+            const dia = fechaActual.getDate();
+            const mes = meses[fechaActual.getMonth()];
+            const año = fechaActual.getFullYear();
+            const horas = fechaActual.getHours().toString().padStart(2, '0'); // Añade un 0 al principio si es necesario
+            const minutos = fechaActual.getMinutes().toString().padStart(2, '0');
+            return `${dia} ${mes} de ${año}, ${horas}:${minutos}`;
+        }
+
+        // Función para eliminar tildes de una cadena
+        function eliminarTildes(texto) {
+            const mapaTildes = {
+                'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u',
+                'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U',
+                'ü': 'u', 'Ü': 'U'
+            };
+            return texto.split('').map(c => mapaTildes[c] || c).join('');
+        }
+
+        // Función para obtener los parámetros de la URL y formatear el valor
+        function obtenerParametrosURL() {
+            const params = new URLSearchParams(window.location.search);
+            const nombre = params.get('nombre') || 'No disponible';
+            document.getElementById('nombre').textContent = eliminarTildes(nombre.toUpperCase());
+            document.getElementById('numero').textContent = params.get('numero') || 'No disponible';
+
+            let valor = params.get('valor') || '0';
+            valor = valor.replace(/,/g, '.'); // Reemplaza las comas por puntos
+            valor = parseFloat(valor).toLocaleString('es-CO', {
+                minimumFractionDigits: 0
+            });
+            document.getElementById('valor').textContent = `$ ${valor}`;
+            document.getElementById('fecha').textContent = formatearFechaHora(); // Aplica el formato correcto de fecha y hora
+        }
+
+        // Inicializa los valores
+        window.onload = function() {
+            generarReferencia();
+            obtenerParametrosURL();
+        };
+
+        // Botón para compartir el comprobante
+        document.getElementById('botonCompartir').onclick = function() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(function() {
+                alert('Comprobante copiado al portapapeles');
+            }, function() {
+                alert('Error al copiar el comprobante');
+            });
+        };
+    </script>
+</body>
+</html>

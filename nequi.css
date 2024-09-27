@@ -1,0 +1,90 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilo del botón de regresar */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1d72b8;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #155a8a;
+}
+
+/* Contenedor del comprobante */
+.comprobante-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin: 20px auto;
+}
+
+/* Estilo del logo */
+.logo-nequi {
+    max-width: 120px;
+    margin-bottom: 15px;
+}
+
+/* Estilo del título del comprobante */
+.comprobante-container h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo de los detalles del comprobante */
+.detalles {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+}
+
+.detalles p {
+    margin: 10px 0;
+}
+
+.detalles strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo del enlace de compartir */
+.boton-compartir {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #1d72b8;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.boton-compartir:hover {
+    background-color: #155a8a;
+}
