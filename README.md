@@ -10,5 +10,3 @@ Este proyecto genera comprobantes de pago personalizados para las plataformas Ne
 - **Generación automática de referencias de comprobantes y fecha/hora**.
 - **Compatible con dispositivos móviles** gracias a un diseño responsivo.
 
-## Estructura del Proyecto
-
